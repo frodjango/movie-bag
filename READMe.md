@@ -18,6 +18,7 @@ zipp               3.6.0
 cd /Users/frodjango/code/movie-bag/app
 
 export ENV_FILE_LOCATION=./.env
+export FLASK_APP=app
 
 cd /Users/frodjango/code/movie-bag
 
