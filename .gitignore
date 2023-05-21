@@ -1,0 +1,15 @@
+venv/
+/Users/frodjango/code/FlaskExample/flask/examples/tutorial/flaskr/logs
+*.pyc
+__pycache__/
+instance/
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+.idea/
+*.swp
+*~

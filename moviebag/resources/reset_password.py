@@ -2,15 +2,15 @@
 
 from flask import request, render_template
 from flask_jwt_extended import create_access_token, decode_token
-from app.database.models import User
+from moviebag.database.models import User
 from flask_restful import Resource
 import datetime
-from app.resources.errors import SchemaValidationError, InternalServerError, \
+from moviebag.resources.errors import SchemaValidationError, InternalServerError, \
     EmailDoesnotExistsError, BadTokenError, ExpiredTokenError
 from jwt.exceptions import ExpiredSignatureError, DecodeError, \
     InvalidTokenError
 
-from app.services.mail_service import send_email
+from moviebag.services.mail_service import send_email
 
 class ForgotPassword(Resource):
     def post(self):

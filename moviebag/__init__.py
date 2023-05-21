@@ -28,9 +28,10 @@ def create_app(test_config=None):
     app.jwt = JWTManager(app)
     app.mail = Mail(app)
 
-    app.config['MONGODB_SETTINGS'] = {
-        'host': 'mongodb://localhost/movie-bag'
-    }
+    # removed in chapter 6
+    # app.config['MONGODB_SETTINGS'] = {
+    #     'host': 'mongodb://localhost/movie-bag'
+    # }
 
 
     initialize_db(app)
@@ -68,9 +69,10 @@ def create_app(test_config=None):
         handler.setFormatter(defaultFormatter)
         logging.basicConfig(format=myFormat, level=log_level)
 
-    @app.route('/')
+
+    @app.route('/hello')
     def hello():
-        return {'hello': 'world'}
+        return "<p>Hello, World!</p>"
 
 
     @app.before_request
@@ -81,4 +83,4 @@ def create_app(test_config=None):
 
     return app
 
-# app.run()
+

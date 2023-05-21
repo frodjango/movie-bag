@@ -3,7 +3,7 @@ from flask import current_app
 
 from threading import Thread
 from flask_mail import Message
-from app.resources.errors import InternalServerError
+from moviebag.resources.errors import InternalServerError
 
 # from app import app
 # from app import mail

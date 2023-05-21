@@ -1,5 +1,5 @@
 from flask import Blueprint, Response, request
-from app.database.models import Movie
+from moviebag.database.models import Movie
 from flask_jwt_extended import jwt_required
 
 
