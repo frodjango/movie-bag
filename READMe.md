@@ -23,7 +23,7 @@ export ENV_FILE_LOCATION=./.env.test
 
 cd /Users/frodjango/code/movie-bag
 
-python -m app.py
+python -m app.py	OR   flask run
 
 etc...
 

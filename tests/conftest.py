@@ -56,12 +56,19 @@ def app():
     """Create and configure a new app instance for each test."""
 
     # create the app with common test config
-    app = create_app({"TESTING": True })
-    print("SALUT")
+    app = create_app(
+        {
+            'TESTING': True,
+            'JWT_SECRET_KEY': 'super-secret',
+            'MAIL_SERVER': "localhost",
+            'MAIL_PORT': "1025",
+            'MAIL_USERNAME':"jazzgitan@yahoo.ca",
+            'MAIL_PASSWORD': "12345",
+            'MONGODB_SETTINGS': { 'host': 'mongodb://localhost/movie-bag-test' }
+        }
+    )
 
-    print("TESTING C")
     yield app
-    print("TESTING D")
 
 # @pytest.fixture
 # def runner(app):

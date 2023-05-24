@@ -1,6 +1,6 @@
 #~movie-bag/resources/muvie.py
 
-from flask import Response, request
+from flask import Response, request, jsonify
 from moviebag.database.models import Movie, User
 from flask_restful import Resource
 from flask_jwt_extended import jwt_required, get_jwt_identity
@@ -33,7 +33,7 @@ class TestApi(Resource):
 
 class MuviesApi(Resource):
     def get(self):
-        query = Movie.objects()
+        # query = Movie.objects()
         movies = Movie.objects().to_json()
         return Response(movies, mimetype="application/json", status=200)
 
@@ -41,7 +41,6 @@ class MuviesApi(Resource):
     def post(self):
         try:
             user_id = get_jwt_identity()
-            # print("A")
             body = request.get_json()
             user = User.objects.get(id=user_id)
             movie =  Movie(**body, added_by=user)
@@ -49,11 +48,15 @@ class MuviesApi(Resource):
             user.update(push__movies=movie)
             user.save()
             id = movie.id
-            print("ID is:", id)
-            data = User.objects().to_json()
-            # return Response({ "allo": "fro"}, mimetype="application/json", status=200)
+            ob = dict()
+            print("ID is:", {'id': str(id)})
+            ob['id'] = str(id)
+            # data = User.objects().to_json()
+            # return Response({'id': str(id)}, mimetype="application/json", status=200)
+            # return Response(ob.to_json(), mimetype="application/json", status=200)
 
-            return Response({'id': str(id)}, mimetype="application/json", status=200)
+            # return jsonify({ "allo": "fro"})
+
 
         except (FieldDoesNotExist, ValidationError):
             raise SchemaValidationError
