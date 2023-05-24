@@ -1,10 +1,3 @@
-Observations from MAy 24th 2023
-
-tried to redo this project with a 3.7.9 python version - ran into flask_restfull problems
-
-at the end of the day this flask_restful package is nothing but problems - no future
-
-
 was created with pyenv virtualenv 3.6.15 movie-bag-env
 
 pip install flask
